@@ -56,15 +56,13 @@ public class CategoryRepository {
         }
     }
     public void delete(Category1 cate){
-        try{
-            // Lay ra tran dang co tai thoi diem hien tai
-            s.getTransaction().begin();
-            // Delete doi tuong => delete
-            s.delete(cate);
-            // day di => commit
+        try {
+            s.getTransaction().begin(); // Mo ra 1 transation => Loi => rollback
+            s.delete(cate); // Delete => merge
             s.getTransaction().commit();
         }catch (Exception e){
-            // Quay ve trang thai ban dau
+            e.printStackTrace();
+            // Loi => co the rollback o day
             s.getTransaction().rollback();
         }
     }
