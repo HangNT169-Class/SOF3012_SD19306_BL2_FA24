@@ -67,22 +67,19 @@ public class CategoryRepository {
     // trang vi tri dau => 3 phau (pt0-ot2)
     // trang 1 => 3 pt tiep (pt3 - pt5)
     public List<Category1> phanTrangHQL(int pageNumber, int pageSize) {
-        // limit offset
-        int offset = (pageNumber) * pageSize; // phan tu bat dau duoc phan trang
-        // Tao cau hql
-        String hql = "SELECT c FROM Category1 c ORDER BY c.id1";
-        // Tao query
-        Query q = s.createQuery(hql);
-        // Set gia tri cho limit & offset
-        q.setFirstResult(offset); // phan tu dau tien bat dau cua trang moi
-//        if(pageSize >)
+        Query q = s.createQuery("SELECT c FROM Category1 c ORDER BY c.id1");
+        q.setFirstResult((pageNumber) * pageSize);
         q.setMaxResults(pageSize);
-        // return luon list tra ra
-        System.out.println(offset);
-        System.out.println(pageSize);
         return q.getResultList();
     }
-
+    public static void main(String[] args) {
+        System.out.println(new CategoryRepository().phanTrangHQL(1,4));
+//        System.out.println(new CategoryRepository().getAll().size());
+//        System.out.println(new CategoryRepository().getAll());
+//        System.out.println(new CategoryRepository().phanTrangSQL(1, 2));
+//        System.out.println(new CategoryRepository().getOne1(1L));
+//        new CategoryRepository().phanTrangSQL(3, 2).forEach(s -> System.out.println(s));
+    }
     // cau lenh sql
     public List<Category1> phanTrangSQL(int pageNumber, int pageSize) {
         // Set gia tri cho offset
@@ -141,11 +138,5 @@ public class CategoryRepository {
         }
     }
 
-    public static void main(String[] args) {
-//        System.out.println(new CategoryRepository().getAll().size());
-//        System.out.println(new CategoryRepository().getAll());
-//        System.out.println(new CategoryRepository().phanTrangSQL(1, 2));
-//        System.out.println(new CategoryRepository().getOne1(1L));
-        new CategoryRepository().phanTrangSQL(3, 2).forEach(s -> System.out.println(s));
-    }
+
 }
