@@ -12,34 +12,40 @@
     <title>Title</title>
 </head>
 <body>
+<p>Load cbb</p>
+<select>
+    <c:forEach items="${listCate}" var="cate">
+        <option value="${cate.id1}">${cate.categoryName}</option>
+    </c:forEach>
+</select>
 <table>
-  <thead>
-  <tr>
-    <th>STT</th>
-    <th>ID</th>
-    <th>Product Code</th>
-    <th>Product Name</th>
-    <th>Price</th>
-    <th>Description</th>
-    <th>Category Code</th>
-    <th>Category Name</th>
-    <th colspan="2">Action</th>
-  </tr>
-  </thead>
-  <tbody>
-  <c:forEach items="${listProduct}" var="p" varStatus="i">
+    <thead>
     <tr>
-      <td>${i.index}</td>
-      <td>${p.id}</td>
-      <td>${p.productCode}</td>
-      <td>${p.productName}</td>
-      <td>${p.price}</td>
-      <td>${p.description}</td>
-      <td>${p.cate.categoryCode}</td>
-      <td>${p.cate.categoryName}</td>
+        <th>STT</th>
+        <th>ID</th>
+        <th>Product Code</th>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Category Code</th>
+        <th>Category Name</th>
+        <th colspan="2">Action</th>
     </tr>
-  </c:forEach>
-  </tbody>
+    </thead>
+    <tbody>
+    <c:forEach items="${listProduct}" var="p" varStatus="i">
+        <tr>
+            <td>${i.index}</td>
+            <td>${p.id}</td>
+            <td>${p.productCode}</td>
+            <td>${p.productName}</td>
+            <td>${p.price}</td>
+            <td>${p.description}</td>
+            <td>${p.cate.categoryCode}</td>
+            <td>${p.cate.categoryName}</td>
+        </tr>
+    </c:forEach>
+    </tbody>
 </table>
 </body>
 </html>
