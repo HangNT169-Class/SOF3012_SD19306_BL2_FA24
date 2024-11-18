@@ -10,7 +10,10 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
-@WebServlet(name = "DemoServlet", value = "/DemoServlet")
+@WebServlet(name = "DemoServlet", value = {
+        "/demo/hien-thi",
+        "/demo/remove"
+})
 public class DemoServlet extends HttpServlet {
     /**
      * Doi Java bt => Cac pham vi truy cap bien/ham => access modifier
