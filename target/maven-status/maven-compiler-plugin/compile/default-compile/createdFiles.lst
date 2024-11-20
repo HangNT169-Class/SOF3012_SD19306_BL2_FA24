@@ -1,7 +1,10 @@
 com/poly/hangnt169/sof3012/B10_Filter/filter/AuthFilter.class
+com/poly/hangnt169/sof3012/B11_Ajax/entity/SinhVien$SinhVienBuilder.class
 com/poly/hangnt169/sof3012/B1_Hibernate/util/HibernateUtil.class
 com/poly/hangnt169/sof3012/B1_Hibernate/repository/CategoryRepository.class
 com/poly/hangnt169/sof3012/B1_Hibernate/entity/Product$ProductBuilder.class
+com/poly/hangnt169/sof3012/B11_Ajax/entity/SinhVien.class
+com/poly/hangnt169/sof3012/B11_Ajax/servlet/AjaxServlet.class
 com/poly/hangnt169/sof3012/B1_Hibernate/entity/Product.class
 com/poly/hangnt169/sof3012/B10_Filter/servlet/LoginServlet.class
 com/poly/hangnt169/sof3012/B1_Hibernate/repository/ProductRepository.class
