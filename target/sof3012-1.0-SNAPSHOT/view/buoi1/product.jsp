@@ -18,6 +18,7 @@
         <option value="${cate.id1}">${cate.categoryName}</option>
     </c:forEach>
 </select>
+<p>Xin chao ban: ${user}</p>
 <table>
     <thead>
     <tr>

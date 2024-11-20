@@ -4,7 +4,8 @@
     <title>Title</title>
   </head>
   <body>
-    <form action="/category/add" method="post">
+  <p>Xin chao ban: ${sessionScope.user}</p>
+  <form action="/category/add" method="post">
       Cate code: <input type="text" name="categoryCode" />
       <br />
       Cate name: <input type="text" name="categoryName" />

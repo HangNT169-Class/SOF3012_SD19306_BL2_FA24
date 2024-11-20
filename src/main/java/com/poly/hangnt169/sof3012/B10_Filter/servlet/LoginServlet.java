@@ -11,7 +11,10 @@ import java.io.IOException;
 
 // 1 duong trong servlet :
 // Vua co get vua co post
-@WebServlet(name = "LoginServlet", value = "/login")
+@WebServlet(name = "LoginServlet", value = {
+        "/login",
+        "/dang-xuat"
+})
 public class LoginServlet extends HttpServlet {
     /**
      * Authenticator: Dung de xac nhan nguoi dung co duoc truy cap vao he thong hay khong
@@ -25,7 +28,21 @@ public class LoginServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/view/buoi10/login.jsp").forward(request, response);
+        String uri = request.getRequestURI();
+        if(uri.contains("login")){
+            request.getRequestDispatcher("/view/buoi10/login.jsp").forward(request, response);
+        }else{
+            // dang xuat
+            // => mat session
+            HttpSession session = request.getSession();
+            // C1: XOA CAC SESSION CAN THIET
+            // CO BN SESSION => REMOVE BANG DAY LAN
+//            session.removeAttribute("user");
+//            session.removeAttribute("role");
+            // C2: xoa toan bo
+            session.invalidate();
+            response.sendRedirect("/login");
+        }
     }
 
     @Override
@@ -53,7 +70,8 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("role", "User");
             }
             // Quay ve trang nao day (co the trang ket qua)
-            request.getRequestDispatcher("/view/buoi10/ket-qua.jsp").forward(request, response);
+            response.sendRedirect("/category/hien-thi");
+//            request.getRequestDispatcher("/view/buoi10/ket-qua.jsp").forward(request, response);
         } else {
             // Dang nhap fail => hien thi thong bao loi
             request.setAttribute("message", "Tai khoang hoac mat khau cua cac ban khong dung");

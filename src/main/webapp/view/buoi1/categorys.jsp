@@ -10,6 +10,8 @@
     <button type="submit">Search</button>
 </form>
 <br/>
+<p>Xin chao ban: ${user}</p>
+<a href="/dang-xuat">Đăng xuất</a> <br/>
 <button><a href="/category/view-add">Add Cate</a></button>
 <table>
     <thead>
